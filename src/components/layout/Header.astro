@@ -1,0 +1,60 @@
+---
+import Button from '../ui/Button.astro'
+---
+
+<header>
+  <div class="logo">
+    <h2 class="logo__text">techsolvd</h2>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/cv">CV</a>
+    <a href="/projects">Projects</a>
+    <a href="/blogs">Blogs</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 90rem;
+    border: none;
+    /* border-bottom: 1px solid var(--clr-grey); */
+    margin-top: 2.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: var(--ff-logo);
+    font-weight: var(--fw-logo);
+    font-size: var(--fs-logo);
+    line-height: var(--lh-logo);
+    letter-spacing: var(--ls-logo);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    a {
+      color: var(--clr-white);
+      text-decoration: none;
+      font-family: var(--ff-button);
+      font-weight: var(--fw-button);
+      font-size: var(--fs-button);
+      line-height: var(--lh-button);
+      letter-spacing: var(--ls-button);
+      border-bottom: 1px solid var(--clr-green);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--clr-green);
+      }
+    }
+  }
+</style>
