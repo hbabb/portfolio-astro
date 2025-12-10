@@ -1,0 +1,111 @@
+/* space-grotesk-regular - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Space Grotesk";
+	font-style: normal;
+	font-weight: 400;
+	src: url("/fonts/space-grotesk-v22-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* space-grotesk-700 - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Space Grotesk";
+	font-style: normal;
+	font-weight: 700;
+	src: url("/fonts/space-grotesk-v22-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+	--clr-black: #151515;
+	--clr-lime: #4ee1a0;
+	--clr-dark-grey: #242424;
+	--clr-grey: #d9d9d9;
+	--clr-white: #ffffff;
+
+	--ff-heading-xl: "Space Grotesk", sans-serif;
+	--ff-heading-lg: "Space Grotesk", sans-serif;
+	--ff-heading-md: "Space Grotesk", sans-serif;
+	--ff-body-lg: "Space Grotesk", sans-serif;
+
+	--fw-heading-xl: 700;
+	--fw-heading-lg: 700;
+	--fw-heading-md: 700;
+	--fw-body-lg: 400;
+
+	--fs-heading-xl: clamp(2.5rem, calc(1.772rem + 3.107vw), 5.5rem);
+	--fs-heading-lg: 3rem;
+	--fs-heading-md: 1.5rem;
+	--fs-body-lg: 1.125rem;
+
+	--lh-heading-xl: clamp(2.5rem, calc(1.772rem + 3.107vw), 5.5rem);
+	--lh-heading-lg: 3.5rem;
+	--lh-heading-md: 2rem;
+	--lh-body-lg: 1.75rem;
+
+	--ls-heading-xl: -2.5px;
+	--ls-heading-lg: -1.5px;
+}
+
+/* 1. Box-sizing and margin/padding reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* 2. Remove default body margin and set line-height */
+body {
+	margin: 0;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-family: var(--ff-body-lg);
+	font-weight: var(--fw-body-lg);
+	font-size: var(--fs-body-lg);
+	line-height: var(--lh-body-lg);
+}
+
+html,
+body {
+	background: var(--clr-black);
+	color: var(--clr-white);
+}
+
+/* 4. Remove list styles */
+ol,
+ul {
+	list-style: none;
+}
+
+/* 5. Prevent text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+	text-wrap: balance;
+}
+
+p {
+	text-wrap: pretty;
+	font-family: var(--ff-body-lg);
+	font-weight: var(--fw-body-lg);
+	font-size: var(--fs-body-lg);
+	line-height: var(--lh-body-lg);
+	color: var(--clr-grey);
+}
+
+/* Project styles */
+h1 {
+	font-family: var(--ff-heading-xl);
+	font-weight: var(--fw-heading-xl);
+	font-size: var(--fs-heading-xl);
+	line-height: var(--lh-heading-xl);
+	letter-spacing: var(--ls-heading-xl);
+}
