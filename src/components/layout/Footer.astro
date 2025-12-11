@@ -1,0 +1,66 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<footer>
+  <div class="logo">
+    <h2 class="logo__text">techsolvd</h2>
+  </div>
+  <div class="icons">
+    <a href="https://github.com/hbabb" target="_blank" aria-label="GitHub Icon Link">
+      <Icon name="fa7-brands:github" size={24} />
+    </a>
+    <a href="https://linkedin.com/in/heath-babb" target="_blank" aria-label="LinkedIn Icon Link">
+      <Icon name="fa7-brands:square-linkedin" size={24} />
+    </a>
+    <a href="https://x.com/techsolvd" target="_blank" aria-label="Twitter Icon Link">
+      <Icon name="fa7-brands:x-twitter" size={24} />
+    </a>
+    <a href="https://www.frontendmentor.io/profile/hbabb" target="_blank" aria-label="Frontend Mentor Icon Link">
+      <Icon name="simple-icons:frontendmentor" size={22} />
+    </a>
+    <a href="https://www.codewars.com/users/hbabb" target="_blank" aria-label="Frontend Mentor Icon Link">
+      <Icon name="cib:codewars" size={22} />
+    </a>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 90rem;
+    padding-bottom: 3.5rem;
+    padding-top: 2.5rem;
+    border: none;
+    border-top: 1px solid var(--clr-grey);
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  a {
+    color: var(--clr-white);
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--clr-green);
+    }
+  }
+  .logo__text {
+    font-family: var(--ff-logo);
+    font-weight: var(--fw-logo);
+    font-size: var(--fs-logo);
+    line-height: var(--lh-logo);
+    letter-spacing: var(--ls-logo);
+  }
+</style>
