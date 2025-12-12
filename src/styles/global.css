@@ -80,11 +80,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border: 1px solid yellow;
+	/* border: 1px solid yellow; */
 }
 
 html {
-	border: 1px dashed green;
+	/* border: 1px dashed green; */
 }
 
 html,
