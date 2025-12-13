@@ -24,7 +24,7 @@
     "test:e2e": "playwright test",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint": "eslint .",
+    "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "check:updates": "pnpm outdated",
     "update:interactive": "pnpm update --interactive",
