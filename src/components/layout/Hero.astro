@@ -1,0 +1,37 @@
+---
+import Button from '../ui/Button.astro'
+---
+
+<section id="hero">
+  <img src="/images/pattern-rings.svg" alt="" class="pattern-rings" />
+  <div class="intro">
+    <h1>
+      Nice to meet you! <br />
+      I'm <span>Heath Babb</span>
+    </h1>
+    <p>Based in the US, I'm a full-stack developer passionate about building accessible web apps that users love.</p>
+  </div>
+  <Button href="/contact">Contact Me</Button>
+</section>
+
+<style>
+  section {
+    position: relative;
+    max-width: 1110px;
+    margin: 0 auto;
+
+    border: 1px dashed yellow;
+  }
+
+  .pattern-rings {
+    position: absolute;
+    /* width: 530px; */
+    top: 0;
+    left: 0;
+    transform: translate(-100px, 133px);
+    pointer-events: none;
+    user-select: none;
+
+    border: 1px solid green;
+  }
+</style>
