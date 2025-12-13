@@ -28,7 +28,8 @@
     "lint:fix": "eslint . --fix",
     "check:updates": "pnpm outdated",
     "update:interactive": "pnpm update --interactive",
-    "update:all": "pnpm update --latest"
+    "update:all": "pnpm update --latest",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.15.9",
