@@ -24,11 +24,12 @@
     "test:e2e": "playwright test",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint": "eslint .",
+    "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "check:updates": "pnpm outdated",
     "update:interactive": "pnpm update --interactive",
-    "update:all": "pnpm update --latest"
+    "update:all": "pnpm update --latest",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.15.9",

@@ -1,5 +1,5 @@
 ---
-import Button from '../ui/Button.astro'
+
 ---
 
 <header>
@@ -17,6 +17,8 @@ import Button from '../ui/Button.astro'
 
 <style>
   header {
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,6 +28,7 @@ import Button from '../ui/Button.astro'
     /* border-bottom: 1px solid var(--clr-grey); */
     margin-top: 2.5rem;
     padding-bottom: 0.5rem;
+    background: transparent;
   }
 
   h2 {
