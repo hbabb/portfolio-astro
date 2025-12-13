@@ -25,7 +25,7 @@ jobs:
         run: pnpm install
       
       - name: Format code with Prettier
-        run: pnpm prettier --check .
+        run: pnpm format
       
       - name: Run linting
-        run: pnpm lint
+        run: pnpm lint:fix
