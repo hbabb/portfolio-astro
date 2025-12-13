@@ -47,5 +47,11 @@
     "scss",
     "pcss",
     "postcss"
+  ],
+  "cSpell.words": [
+    "codewars",
+    "frontendmentor",
+    "markdoc",
+    "techsolvd"
   ]
 }
