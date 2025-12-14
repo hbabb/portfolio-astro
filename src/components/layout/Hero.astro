@@ -49,6 +49,14 @@ import { Icon } from 'astro-icon/components'
       </div>
     </header>
 
+    <div class="hero__image">
+      <picture>
+        <source media="(min-width: 1000px)" srcset="/images/portfolio_desktop.webp" />
+        <source media="(min-width: 600px)" srcset="/images/portfolio_tablet.webp" />
+        <img src="/images/portfolio_mobile.webp" alt="Heath Babb portfolio picture" />
+      </picture>
+    </div>
+
     <div class="hero__content">
       <h1>
         Nice to meet you! <br />
@@ -56,13 +64,6 @@ import { Icon } from 'astro-icon/components'
       </h1>
       <p>Based in the US, I'm a full-stack developer passionate about building accessible web apps that users love.</p>
       <Button href="#contact">Contact Me</Button>
-    </div>
-    <div class="hero__image">
-      <picture>
-        <source media="(min-width: 1000px)" srcset="/images/portfolio_desktop.webp" />
-        <source media="(min-width: 600px)" srcset="/images/portfolio_tablet.webp" />
-        <img src="/images/portfolio_mobile.webp" alt="Heath Babb portfolio picture" />
-      </picture>
     </div>
   </div>
 </section>
@@ -73,17 +74,32 @@ import { Icon } from 'astro-icon/components'
     max-width: 90rem;
     margin: 0 auto;
 
-    border: 1px dashed yellow;
+    @media (max-width: 48em) {
+      max-width: 48rem;
+    }
+
+    @media (max-width: 23.4375em) {
+      max-width: 21.5625rem;
+    }
   }
   .pattern-rings {
     position: absolute;
     width: 530px;
     height: 129px;
     top: 133px;
-    left: -265px;
+    left: -100px;
     pointer-events: none;
     user-select: none;
     z-index: 1;
+
+    @media (max-width: 48em) {
+      left: -265px;
+    }
+
+    @media (max-width: 23.4375em) {
+      top: 124px;
+      left: -342px;
+    }
   }
 
   .pattern-circle {
@@ -93,6 +109,16 @@ import { Icon } from 'astro-icon/components'
     pointer-events: none;
     user-select: none;
     z-index: 2;
+
+    @media (max-width: 48em) {
+      top: 471px;
+      right: -63px;
+    }
+
+    @media (max-width: 23.4375em) {
+      top: 254px;
+      right: -65px;
+    }
   }
 
   .hero__container {
@@ -102,7 +128,14 @@ import { Icon } from 'astro-icon/components'
     grid-template-columns: 1fr 445px;
     grid-template-rows: min-content min-content;
 
-    border: 1px solid red;
+    @media (max-width: 48em) {
+      grid-template-columns: 1fr 322px;
+    }
+
+    @media (max-width: 23.4375em) {
+      grid-template-columns: 1fr;
+      grid-template-rows: min-content min-content min-content;
+    }
   }
 
   header {
@@ -119,6 +152,19 @@ import { Icon } from 'astro-icon/components'
     margin-top: 2.5rem;
     padding-bottom: 0.5rem;
     background: transparent;
+
+    @media (max-width: 48em) {
+      margin-top: 2rem;
+      padding-inline: 2rem;
+    }
+
+    @media (max-width: 23.4375em) {
+      grid-row: 1;
+      position: relative;
+      flex-direction: column;
+      gap: 1.25rem;
+      justify-content: start;
+    }
 
     .icons {
       display: flex;
@@ -145,12 +191,39 @@ import { Icon } from 'astro-icon/components'
     }
   }
 
+  .hero__image {
+    grid-column: 2;
+    grid-row: 2;
+    z-index: 1;
+
+    @media (max-width: 23.4375em) {
+      grid-column: 1;
+      grid-row: 1 / 2;
+      position: relative;
+      justify-self: center;
+      margin-top: 3rem;
+    }
+  }
+
   .hero__content {
     grid-column: 1;
     grid-row: 2;
     margin-right: -3.125rem;
     margin-top: 7rem;
     z-index: 3;
+
+    @media (max-width: 48em) {
+      margin-top: 8.25rem;
+      padding-left: 2rem;
+    }
+
+    @media (max-width: 23.4375em) {
+      grid-row: 2 / 3;
+      margin-top: -1.5rem;
+      text-align: center;
+      margin-right: 0;
+      padding: 0 1rem;
+    }
 
     h1 {
       margin-bottom: 1.5rem;
@@ -163,12 +236,10 @@ import { Icon } from 'astro-icon/components'
 
     p {
       margin-bottom: 4rem;
-    }
-  }
 
-  .hero__image {
-    grid-column: 2;
-    grid-row: 2;
-    z-index: 1;
+      @media (max-width: 23.4375em) {
+        margin-bottom: 1.5rem;
+      }
+    }
   }
 </style>

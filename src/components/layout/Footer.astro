@@ -53,6 +53,16 @@ import { Icon } from 'astro-icon/components'
     padding-top: 2.5em;
     border: none;
     border-top: 1px solid var(--clr-grey);
+
+    @media (max-width: 48em) {
+      max-width: 44.28rem;
+    }
+
+    @media (max-width: 23.4375em) {
+      max-width: 21.4375rem;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
   }
 
   .icons {
