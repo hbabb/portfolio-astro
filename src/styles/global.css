@@ -36,14 +36,14 @@
   --fw-button: 700;
   --fw-logo: 700;
 
-  --fs-heading-xl: clamp(2.5rem, calc(1.772rem + 3.107vw), 5.5rem);
+  --fs-heading-xl: clamp(2.5rem, calc(1.445rem + 4.5vw), 5.5rem);
   --fs-heading-lg: 3rem;
   --fs-heading-md: 1.5rem;
   --fs-body-lg: 1.125rem;
   --fs-button: 1rem;
   --fs-logo: 2rem;
 
-  --lh-heading-xl: clamp(2.5rem, calc(1.772rem + 3.107vw), 5.5rem);
+  --lh-heading-xl: clamp(2.5rem, calc(1.445rem + 4.5vw), 5.5rem);
   --lh-heading-lg: 3.5rem;
   --lh-heading-md: 2rem;
   --lh-body-lg: 1.75rem;
@@ -112,7 +112,7 @@ h6 {
 }
 
 p {
-  text-wrap: pretty;
+  /* text-wrap: pretty; */
   font-family: var(--ff-body-lg);
   font-weight: var(--fw-body-lg);
   font-size: var(--fs-body-lg);
