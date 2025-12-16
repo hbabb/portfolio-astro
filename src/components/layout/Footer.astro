@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { social } from '@/data/social'
 ---
 
 <footer>
@@ -7,36 +8,17 @@ import { Icon } from 'astro-icon/components'
     <h2 class="logo__text">techsolvd</h2>
   </div>
   <div class="icons">
-    <a href="https://github.com/hbabb" target="_blank" aria-label="GitHub Icon Link" rel="noreferrer noopener">
-      <Icon name="fa7-brands:github" size={24} />
-    </a>
-    <a
-      href="https://linkedin.com/in/heath-babb"
-      target="_blank"
-      aria-label="LinkedIn Icon Link"
-      rel="noreferrer noopener"
-    >
-      <Icon name="fa7-brands:square-linkedin" size={24} />
-    </a>
-    <a href="https://x.com/techsolvd" target="_blank" aria-label="Twitter Icon Link" rel="noreferrer noopener">
-      <Icon name="fa7-brands:x-twitter" size={24} />
-    </a>
-    <a
-      href="https://www.frontendmentor.io/profile/hbabb"
-      target="_blank"
-      aria-label="Frontend Mentor Icon Link"
-      rel="noreferrer noopener"
-    >
-      <Icon name="simple-icons:frontendmentor" size={22} />
-    </a>
-    <a
-      href="https://www.codewars.com/users/hbabb"
-      target="_blank"
-      aria-label="Frontend Mentor Icon Link"
-      rel="noreferrer noopener"
-    >
-      <Icon name="cib:codewars" size={22} />
-    </a>
+    {
+      social.map((social) => (
+        <div class="icon-link">
+          <a href={social.href} target="_blank" aria-label={`${social.name} Icon Link`} rel="noreferrer noopener">
+            <div class="icon-wrapper" data-tooltip={social.name}>
+              <Icon name={social.icon} class="icon" />
+            </div>
+          </a>
+        </div>
+      ))
+    }
   </div>
 </footer>
 
@@ -81,6 +63,60 @@ import { Icon } from 'astro-icon/components'
       color: var(--clr-green);
     }
   }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    size: 24px;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .icon-wrapper:hover .icon {
+    transform: scale(1.2);
+  }
+
+  .icon-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .icon-wrapper::before,
+  .icon-wrapper:focus-visible {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0.75rem;
+    background: var(--clr-dark-grey);
+    color: var(--clr-grey);
+    border: 0.5px solid var(--clr-green);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+  }
+
+  .icon-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--clr-dark-grey);
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+  }
+
+  .icon-wrapper:hover::before,
+  .icon-wrapper:hover::after {
+    opacity: 1;
+  }
+
   .logo__text {
     font-family: var(--ff-logo);
     font-weight: var(--fw-logo);
