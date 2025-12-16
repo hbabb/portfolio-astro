@@ -128,3 +128,11 @@ h1 {
   line-height: var(--lh-heading-xl);
   letter-spacing: var(--ls-heading-xl);
 }
+
+h3 {
+  font-family: var(--ff-heading-md);
+  font-weight: var(--fw-heading-md);
+  font-size: var(--fs-heading-md);
+  line-height: var(--lh-heading-md);
+  letter-spacing: var(--ls-heading-md);
+}
