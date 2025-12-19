@@ -5,6 +5,7 @@ import { Icon } from 'astro-icon/components'
 import { social } from '@/data/social'
 import { skills, groupLabels, type GroupBy, type GroupedSkills } from '@/data/skills'
 import { projects } from '@/data/projects'
+import ContactForm from '@/components/layout/ContactForm'
 
 type Props = {
   groupBy?: GroupBy
@@ -20,6 +21,8 @@ const grouped = skills.reduce<GroupedSkills>((acc, skill) => {
 }, {})
 
 const featuredProjects = projects.filter((project) => project.featured).sort((a, b) => (a.order || 0) - (b.order || 0))
+
+export const prerender = false
 ---
 
 <MainLayout title="Home">
@@ -139,15 +142,39 @@ const featuredProjects = projects.filter((project) => project.featured).sort((a,
   </section>
 
   <!-- Contact Section -->
-  <section id="contact"></section>
+  <section id="contact">
+    <div class="contact__container">
+      <ContactForm client:load />
+      <!-- Footer -->
+      <footer>
+        <div class="logo">
+          <h2 class="logo__text">techsolvd</h2>
+        </div>
+        <div class="icons">
+          {
+            social.map((social) => (
+              <div class="icon-link">
+                <a href={social.href} target="_blank" aria-label={`${social.name} Icon Link`} rel="noreferrer noopener">
+                  <div class="icon-wrapper" data-tooltip={social.name}>
+                    <Icon name={social.icon} class="icon" />
+                  </div>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </footer>
+    </div>
+  </section>
 </MainLayout>
 
 <style>
   section {
     position: relative;
-    width: 100vw;
+    width: 100%;
     max-width: 90rem;
     margin: 0 auto;
+    overflow-x: hidden;
   }
 
   .container {
@@ -172,6 +199,7 @@ const featuredProjects = projects.filter((project) => project.featured).sort((a,
     height: 129px;
     top: 253px;
     left: 1149px;
+    /* right: -239px; */
     pointer-events: none;
     user-select: none;
     z-index: 1;
@@ -454,9 +482,113 @@ const featuredProjects = projects.filter((project) => project.featured).sort((a,
     gap: 1rem;
   }
 
+  #contact {
+    width: 100%;
+    background: var(--clr-dark-grey);
+    padding-top: 84px;
+
+    /* border: 1px dashed yellow; */
+  }
+
+  footer {
+    margin: 0 auto;
+    margin-top: 5.75rem;
+    max-width: 69.375rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2.5em;
+    border: none;
+    border-top: 1px solid var(--clr-grey);
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  a {
+    color: var(--clr-white);
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--clr-green);
+    }
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    size: 24px;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .icon-wrapper:hover .icon {
+    transform: scale(1.2);
+  }
+
+  .icon-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .icon-wrapper::before,
+  .icon-wrapper:focus-visible {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0.75rem;
+    background: var(--clr-dark-grey);
+    color: var(--clr-grey);
+    border: 0.5px solid var(--clr-green);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+  }
+
+  .icon-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--clr-dark-grey);
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+  }
+
+  .icon-wrapper:hover::before,
+  .icon-wrapper:hover::after {
+    opacity: 1;
+  }
+
+  .logo__text {
+    font-family: var(--ff-logo);
+    font-weight: var(--fw-logo);
+    font-size: var(--fs-logo);
+    line-height: var(--lh-logo);
+    letter-spacing: var(--ls-logo);
+  }
+
   @media (max-width: 48em) {
     section {
       max-width: 48rem;
+    }
+
+    .container {
+      padding-inline: 2rem;
+      padding-block: 6.25rem;
     }
     .pattern-rings {
       left: -265px;
@@ -488,6 +620,14 @@ const featuredProjects = projects.filter((project) => project.featured).sort((a,
 
     .skills__container {
       max-width: 85%;
+    }
+
+    #contact {
+      padding-block: 3.75rem;
+    }
+
+    footer {
+      max-width: 44.28rem;
     }
   }
 
@@ -542,6 +682,12 @@ const featuredProjects = projects.filter((project) => project.featured).sort((a,
 
     p {
       margin-bottom: 1.5rem;
+    }
+
+    footer {
+      max-width: 21.4375em;
+      flex-direction: column;
+      gap: 1.25em;
     }
   }
 </style>

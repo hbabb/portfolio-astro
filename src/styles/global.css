@@ -21,6 +21,7 @@
   --clr-dark-grey: #242424;
   --clr-grey: #d9d9d9;
   --clr-white: #ffffff;
+  --clr-red: #ff6f5b;
 
   --ff-heading-xl: 'Space Grotesk', sans-serif;
   --ff-heading-lg: 'Space Grotesk', sans-serif;
@@ -67,7 +68,7 @@
 
 /* 2. Remove default body margin and set line-height */
 body {
-  margin: 0;
+  margin: 0 auto;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -80,11 +81,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100dvw;
+
   /* border: 1px solid yellow; */
 }
 
+main {
+  width: 100%;
+  margin: 0 auto;
+  /* border: 1px solid blue; */
+}
+
 /* html {
-  border: 1px dashed green;
+  width: 100vw;
+  border: 2px dashed red;
 } */
 
 html,
@@ -127,6 +137,7 @@ h1 {
   font-size: var(--fs-heading-xl);
   line-height: var(--lh-heading-xl);
   letter-spacing: var(--ls-heading-xl);
+  color: var(--clr-white);
 }
 
 h3 {
