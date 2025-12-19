@@ -1,0 +1,162 @@
+---
+import { Icon } from 'astro-icon/components'
+import { skills, groupLabels, type Skill, type GroupBy, type GroupedSkills } from '@/data/skills'
+
+type Props = {
+  groupBy?: GroupBy
+}
+
+const { groupBy = 'domain' } = Astro.props
+
+const grouped = skills.reduce<GroupedSkills>((acc, skill) => {
+  const key = skill[groupBy]
+  if (!acc[key]) acc[key] = []
+  acc[key].push(skill)
+  return acc
+}, {})
+---
+
+<section class="skills">
+  <!-- Decoration Items -->
+  <img src="/images/pattern-rings.svg" alt="" class="pattern-rings" />
+
+  <!-- Main Skills Items -->
+  <div class="skills__container">
+    {
+      Object.entries(grouped).map(([groupName, groupSkills]) => (
+        <div class="skill__group">
+          <h3 class="group__name">{groupLabels[groupName] || groupName}</h3>
+          <div class="skill__icons">
+            {groupSkills.map((skill) => (
+              <div class="icon-wrapper" data-tooltip={skill.name}>
+                <Icon name={skill.icon} aria-label={`${skill.name} Icon`} class="icon" />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .skills {
+    position: relative;
+    width: 100vw;
+    max-width: 90rem;
+    margin: 0 auto;
+  }
+
+  .pattern-rings {
+    position: absolute;
+    width: 530px;
+    height: 129px;
+    top: 253px;
+    left: 1149px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+  }
+
+  .skills__container {
+    max-width: 69.375rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding-top: 4.5rem;
+    border-top: 1px solid var(--clr-white);
+  }
+  .skill__group {
+  }
+
+  .skill__icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+    gap: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .group__name {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--clr-green);
+  }
+
+  .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    size: 48px;
+  }
+
+  .icon-wrapper::before,
+  .icon-wrapper:focus-visible {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0.75rem;
+    background: var(--clr-dark-grey);
+    color: var(--clr-grey);
+    border: 0.5px solid var(--clr-green);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 10;
+  }
+
+  /* .icon-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--clr-green);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 10;
+  } */
+
+  .icon-wrapper:hover::before,
+  .icon-wrapper:hover::after {
+    opacity: 1;
+  }
+
+  @media (max-width: 48em) {
+    .skills {
+      max-width: 48rem;
+    }
+
+    .pattern-rings {
+      top: 325px;
+      left: 570px;
+    }
+
+    .skills__container {
+      max-width: 85%;
+    }
+  }
+
+  @media (max-width: 23.4375em) {
+    .skills {
+      max-width: 23.4375rem;
+    }
+
+    .pattern-rings {
+      top: 550px;
+      left: 189px;
+    }
+  }
+</style>

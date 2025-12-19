@@ -1,0 +1,139 @@
+.container__form {
+  max-width: 69.375rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.form__text {
+  width: 50%;
+  max-width: 27.8125em;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25em;
+}
+
+.container__form form {
+  width: 50%;
+  max-width: 27.8125em;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25em;
+}
+
+.container__form input,
+.container__form textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--clr-grey);
+  color: var(--clr-grey);
+  font-family: var(--ff-body-lg);
+  font-weight: var(--fw-body-lg);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body-lg);
+}
+
+.container__form input::placeholder,
+.container__form textarea::placeholder {
+  color: var(--clr-grey);
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.container__form textarea {
+  min-height: 7em;
+  resize: vertical;
+}
+
+.container__form input:focus,
+.container__form textarea:focus {
+  outline: none;
+  border-bottom-color: var(--clr-green);
+}
+
+.container__form button {
+  align-self: flex-end;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--clr-green);
+  color: var(--clr-white);
+  font-family: var(--ff-button);
+  font-weight: var(--fw-button);
+  font-size: var(--fs-button);
+  line-height: var(--lh-button);
+  letter-spacing: var(--ls-button);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-bottom: 0.25em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.container__form button:hover {
+  color: var(--clr-green);
+}
+
+.container__form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input__wrapper {
+  position: relative;
+}
+
+.container__form input.normal,
+.container__form textarea.normal {
+  border-bottom: 1px solid var(--clr-white);
+}
+
+.container__form input.valid,
+.container__form textarea.valid {
+  border-bottom: 2px solid var(--clr-green);
+}
+
+.container__form input.invalid,
+.container__form textarea.invalid {
+  border-bottom: 2px solid var(--clr-red);
+}
+
+.error {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  color: var(--clr-red);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 48em) {
+  .container__form {
+    /* max-width: 27.8125rem; */
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.625rem;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .form__text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .container__form form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 23.4375em) {
+  .container__form form {
+    width: 75%;
+  }
+}
