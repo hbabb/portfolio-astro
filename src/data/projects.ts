@@ -1,3 +1,5 @@
+import caesarCipherImage from '@/assets/images/caesar-cipher_py-project.png';
+
 export type Project = {
   name: string;
   description?: string;
@@ -22,7 +24,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: 'Caesar Cipher',
-    image: '/src/assets/images/caesar-cipher_py-project.png',
+    image: caesarCipherImage.src,
     liveUrl: 'https://hbabb.github.io/freeCodeCamp/python/caesar_cipher/',
     codeUrl:
       'https://github.com/hbabb/freecodecamp/tree/master/python/caesar_cipher',
