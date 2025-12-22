@@ -21,6 +21,19 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: 'Caesar Cipher',
+    image: '/src/assets/images/caesar-cipher_py-project.png',
+    liveUrl: 'https://hbabb.github.io/freeCodeCamp/python/caesar_cipher/',
+    codeUrl:
+      'https://github.com/hbabb/freecodecamp/tree/master/python/caesar_cipher',
+    techStack: ['Python', 'HTML', 'CSS', 'JavaScript'],
+    category: 'personal',
+    source: 'freeCodeCamp',
+    date: new Date('2025-12-21'),
+    order: 1,
+    featured: true,
+  },
+  {
     name: 'Design Portfolio',
     image: '/images/thumbnail-project-1-large.webp',
     imageMobile: '/images/thumbnail-project-1-small.webp',
@@ -29,8 +42,6 @@ export const projects: Project[] = [
     techStack: ['HTML', 'CSS'],
     category: 'demo',
     date: new Date('2025-12-16'),
-    order: 1,
-    featured: true,
   },
   {
     name: 'E-Learning Landing Page',

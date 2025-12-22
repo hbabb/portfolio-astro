@@ -104,8 +104,15 @@ export const prerender = false
     <div class="container">
       <div class="projects__header">
         <div class="heading">Projects</div>
-        <div>
+        <div class="heading__button">
           <Button href="#contact">Contact Me</Button>
+        </div>
+        <div class="heading__info">
+          <p>
+            <span>Note:</span> Some of the projects listed below are demo projects provided by Frontend Mentor. These projects
+            will be changed out for active and finalized projects as soon as possible. If you hover over a project and it
+            highlights red, it is a demo project.
+          </p>
         </div>
       </div>
 
@@ -419,8 +426,9 @@ export const prerender = false
   }
 
   .projects__header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     align-items: center;
     padding-bottom: 5rem;
   }
@@ -431,6 +439,22 @@ export const prerender = false
     font-size: var(--fs-heading-xl);
     line-height: var(--lh-heading-xl);
     letter-spacing: var(--ls-heading-xl);
+  }
+
+  .projects__header .heading__button {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .projects__header .heading__info {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-style: italic;
+
+    span {
+      text-transform: uppercase;
+    }
   }
 
   .projects__container {
@@ -461,6 +485,19 @@ export const prerender = false
     gap: 1rem;
     opacity: 0;
     transition: opacity 0.3s;
+    transition: border 0.3s;
+  }
+
+  .project-card[data-category='demo'] .project-card__overlay {
+    border: 2px solid var(--clr-red);
+  }
+
+  .project-card[data-category='personal'] .project-card__overlay {
+    border: 2px solid var(--clr-green);
+  }
+
+  .project-card[data-category='client'] .project-card__overlay {
+    border: 2px solid var(--clr-green);
   }
 
   .project-card__image:hover .project-card__overlay {
@@ -486,6 +523,7 @@ export const prerender = false
     width: 100%;
     background: var(--clr-dark-grey);
     padding-top: 84px;
+    overflow: hidden;
 
     /* border: 1px dashed yellow; */
   }
@@ -499,6 +537,7 @@ export const prerender = false
     justify-content: space-between;
     align-items: center;
     padding-top: 2.5em;
+    padding-bottom: 2.5em;
     border: none;
     border-top: 1px solid var(--clr-grey);
   }
