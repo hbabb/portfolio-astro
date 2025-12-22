@@ -9,6 +9,7 @@ import mdx from '@astrojs/mdx';
 import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import sentry from '@sentry/astro';
 import icon from 'astro-icon';
 // @ts-check
 import { defineConfig } from 'astro/config';
@@ -57,6 +58,12 @@ export default defineConfig({
           max: 5,
         }),
       ],
+    }),
+    sentry({
+      project: 'portfolio-astro',
+      org: 'hb-consultants-llc',
+      // eslint-disable-next-line node/no-process-env
+      authToken: process.env.SENTRY_AUTH_TOKEN,
     }),
   ],
 });

@@ -45,6 +45,7 @@
     "@iconify-json/skill-icons": "^1.2.3",
     "@iconify-json/vscode-icons": "^1.2.37",
     "@marsidev/react-turnstile": "^1.4.0",
+    "@sentry/astro": "^10.32.1",
     "@t3-oss/env-core": "^0.13.10",
     "astro": "^5.16.4",
     "astro-icon": "^1.1.5",
